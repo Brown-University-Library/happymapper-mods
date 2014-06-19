@@ -4,8 +4,7 @@ module ModsDates
 
 class ModsDate
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   attribute :encoding, String
   attribute :point, String
   attribute :key_date, String, tag: 'keyDate'
@@ -15,50 +14,43 @@ end
 
 class DateIssued < ModsDate
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'dateIssued'
 end
 
 class DateCreated < ModsDate
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'dateCreated'
 end
 
 class DateCaptured < ModsDate
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'dateCaptured'
 end
 
 class DateValid < ModsDate
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'dateValid'
 end
 
 class DateModified < ModsDate
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'dateModified'
 end
 
 class CopyrightDate < ModsDate
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'copyrightDate'
 end
 
 class DateOther < ModsDate
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'dateOther'
 end
 

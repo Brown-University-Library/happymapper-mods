@@ -4,8 +4,7 @@ require './lib/mods_namespaces'
 
 class TitleInfo
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'titleInfo'
 
   attribute :id, String, tag: 'ID'
@@ -18,8 +17,7 @@ end
 
 class TypeOfResource
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'typeOfResource'
 
   attribute :collection, String
@@ -32,8 +30,7 @@ end
 
 class Genre
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'genre'
 
   attribute :authority, String
@@ -46,8 +43,7 @@ end
 
 class PlaceTerm
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'placeTerm'
 
   attribute :type, String
@@ -57,8 +53,7 @@ end
   
 class Place
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'place'
  
   attribute :supplied, String
@@ -67,8 +62,7 @@ end
 
 class Publisher
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'publisher'
 
   attribute :supplied, String
@@ -78,8 +72,7 @@ end
 
 class Edition
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'edition'
 
   attribute :supplied, String
@@ -88,8 +81,7 @@ end
 
 class Frequency
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'frequency'
 
   attribute :authority, String
@@ -98,8 +90,7 @@ end
 
 class OriginInfo
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'originInfo'
   include ModsDates
 
@@ -120,8 +111,7 @@ end
 
 class NamePart
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'namePart'
 
   attribute :type, String
@@ -130,8 +120,7 @@ end
 
 class RoleTerm
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'roleTerm'
 
   attribute :type, String
@@ -141,8 +130,7 @@ end
 
 class Role
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'role'
 
   has_many :role_term, RoleTerm, tag: 'roleTerm'
@@ -150,8 +138,7 @@ end
 
 class Name
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'name'
 
   attribute :id, String, tag: 'ID'
@@ -165,8 +152,7 @@ end
 
 class Identifier
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'identifier'
 
   attribute :type, String
@@ -177,8 +163,7 @@ end
 
 class LanguageTerm
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'languageTerm'
 
   attribute :type, String
@@ -188,8 +173,7 @@ end
 
 class Language
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'language'
 
   attribute :object_part, String, tag: 'objectPart'
@@ -198,8 +182,7 @@ end
 
 class Form
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'form'
   
   attribute :authority, String
@@ -209,8 +192,7 @@ end
 
 class Extent
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'extent'
 
   attribute :supplied, String
@@ -219,8 +201,7 @@ end
 
 class PhysicalDescription
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'physicalDescription'
 
   attribute :display_label, String, tag: 'displayLabel'
@@ -230,8 +211,7 @@ end
 
 class Abstract
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'abstract'
 
   attribute :display_label, String, tag: 'displayLabel'
@@ -241,8 +221,7 @@ end
 
 class Note
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'note'
 
   attribute :id, String, tag: 'ID'
@@ -252,8 +231,7 @@ end
 
 class Temporal
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'temporal'
 
   attribute :authority, String
@@ -266,8 +244,7 @@ end
 
 class Subject
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'subject'
 
   attribute :id, String, tag: 'ID'
@@ -282,8 +259,7 @@ end
 
 class ModsBase
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
 
   attribute :id, String, tag: 'ID'
   has_many :title_info, TitleInfo, tag: 'titleInfo', xpath: '.'
@@ -301,8 +277,7 @@ end
 
 class RelatedItem < ModsBase
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'relatedItem'
 
   attribute :display_label, String, tag: 'displayLabel'
@@ -311,8 +286,7 @@ end
 
 class Mods < ModsBase
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag MODS_PREFIX
 
   attribute :version, String
@@ -321,8 +295,7 @@ end
 
 class ModsCollection
   include HappyMapper
-  register_namespace MODS_PREFIX, MODS_NS
-  namespace MODS_PREFIX
+  include ModsNamespace
   tag 'modsCollection'
 
   has_many :mods, Mods
