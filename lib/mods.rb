@@ -1,10 +1,11 @@
 require 'happymapper'
 require './lib/mods_dates'
+require './lib/mods_namespaces'
 
 class TitleInfo
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'titleInfo'
 
   attribute :id, String, tag: 'ID'
@@ -17,8 +18,8 @@ end
 
 class TypeOfResource
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'typeOfResource'
 
   attribute :collection, String
@@ -31,8 +32,8 @@ end
 
 class Genre
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'genre'
 
   attribute :authority, String
@@ -45,8 +46,8 @@ end
 
 class PlaceTerm
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'placeTerm'
 
   attribute :type, String
@@ -56,8 +57,8 @@ end
   
 class Place
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'place'
  
   attribute :supplied, String
@@ -66,8 +67,8 @@ end
 
 class Publisher
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'publisher'
 
   attribute :supplied, String
@@ -77,8 +78,8 @@ end
 
 class Edition
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'edition'
 
   attribute :supplied, String
@@ -87,8 +88,8 @@ end
 
 class Frequency
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'frequency'
 
   attribute :authority, String
@@ -97,8 +98,8 @@ end
 
 class OriginInfo
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'originInfo'
   include ModsDates
 
@@ -119,8 +120,8 @@ end
 
 class NamePart
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'namePart'
 
   attribute :type, String
@@ -129,8 +130,8 @@ end
 
 class RoleTerm
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'roleTerm'
 
   attribute :type, String
@@ -140,8 +141,8 @@ end
 
 class Role
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'role'
 
   has_many :role_term, RoleTerm, tag: 'roleTerm'
@@ -149,8 +150,8 @@ end
 
 class Name
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'name'
 
   attribute :id, String, tag: 'ID'
@@ -164,8 +165,8 @@ end
 
 class Identifier
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'identifier'
 
   attribute :type, String
@@ -176,8 +177,8 @@ end
 
 class LanguageTerm
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'languageTerm'
 
   attribute :type, String
@@ -187,8 +188,8 @@ end
 
 class Language
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'language'
 
   attribute :object_part, String, tag: 'objectPart'
@@ -197,8 +198,8 @@ end
 
 class Form
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'form'
   
   attribute :authority, String
@@ -208,8 +209,8 @@ end
 
 class Extent
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'extent'
 
   attribute :supplied, String
@@ -218,8 +219,8 @@ end
 
 class PhysicalDescription
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'physicalDescription'
 
   attribute :display_label, String, tag: 'displayLabel'
@@ -229,8 +230,8 @@ end
 
 class Abstract
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'abstract'
 
   attribute :display_label, String, tag: 'displayLabel'
@@ -240,8 +241,8 @@ end
 
 class Note
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'note'
 
   attribute :id, String, tag: 'ID'
@@ -251,8 +252,8 @@ end
 
 class Temporal
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'temporal'
 
   attribute :authority, String
@@ -265,8 +266,8 @@ end
 
 class Subject
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'subject'
 
   attribute :id, String, tag: 'ID'
@@ -281,8 +282,8 @@ end
 
 class ModsBase
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
 
   attribute :id, String, tag: 'ID'
   has_many :title_info, TitleInfo, tag: 'titleInfo', xpath: '.'
@@ -300,8 +301,8 @@ end
 
 class RelatedItem < ModsBase
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'relatedItem'
 
   attribute :display_label, String, tag: 'displayLabel'
@@ -310,9 +311,9 @@ end
 
 class Mods < ModsBase
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
-  tag 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
+  tag MODS_PREFIX
 
   attribute :version, String
   has_many :related_item, RelatedItem, xpath: '.'
@@ -320,8 +321,8 @@ end
 
 class ModsCollection
   include HappyMapper
-  register_namespace 'mods', 'http://www.loc.gov/mods/v3'
-  namespace 'mods'
+  register_namespace MODS_PREFIX, MODS_NS
+  namespace MODS_PREFIX
   tag 'modsCollection'
 
   has_many :mods, Mods
