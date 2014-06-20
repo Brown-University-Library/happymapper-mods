@@ -6,15 +6,19 @@ SAMPLE_MODS = '<?xml version="1.0"?>
   <mods:titleInfo>
     <mods:title>Po&#xE9;try</mods:title>
   </mods:titleInfo>
+  <mods:typeOfResource>text</mods:typeOfResource>
 </mods:mods>
 '
 
 describe Mods do
-  it "should create a title" do
+  it "should create elements" do
     m = Mods.new
-    t = TitleInfo.new
-    t.title = 'Poétry'
-    m.title_info = t
+    title = TitleInfo.new
+    title.title = 'Poétry'
+    m.title_info = title
+    type_of_resource = TypeOfResource.new
+    type_of_resource.content = 'text'
+    m.type_of_resource = type_of_resource
     m.to_xml.should == SAMPLE_MODS
   end
 
@@ -37,5 +41,10 @@ describe Mods do
     titles = []
     m.title_info.each { |title_info| titles << title_info.title[0] }
     titles.should == ['Poétry', 'Péts']
+  end
+
+  it "should parse typeOfResource" do
+    m = Mods.parse(SAMPLE_MODS)
+    m.type_of_resource[0].content.should == 'text'
   end
 end
