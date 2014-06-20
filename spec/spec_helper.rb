@@ -100,3 +100,17 @@ def build_abstract
   abstract.content = 'Poétry description...'
   abstract
 end
+
+def build_table_of_contents
+  toc = TableOfContents.new
+  toc.type = 'incomplete contents'
+  toc.content = 'ToC'
+  toc
+end
+
+def build_target_audience
+  ta = TargetAudience.new
+  ta.authority = 'local'
+  ta.content = 'audience'
+  ta
+end

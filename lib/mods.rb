@@ -231,6 +231,26 @@ class Abstract
   content :content, String
 end
 
+class TableOfContents
+  include HappyMapper
+  include ModsNamespace
+  tag 'tableOfContents'
+
+  attribute :type, String
+  attribute :display_label, String, tag: 'displayLabel'
+  content :content, String
+end
+
+class TargetAudience
+  include HappyMapper
+  include ModsNamespace
+  tag 'targetAudience'
+
+  attribute :authority, String
+  attribute :display_label, String, tag: 'displayLabel'
+  content :content, String
+end
+
 class Temporal
   include HappyMapper
   include ModsNamespace
@@ -272,6 +292,8 @@ class ModsBase
   has_many :language, Language, xpath: '.'
   has_many :physical_description, PhysicalDescription, tag: 'physicalDescription', xpath: '.'
   has_many :abstract, Abstract, xpath: '.'
+  has_many :table_of_contents, TableOfContents, xpath: '.'
+  has_many :target_audience, TargetAudience, xpath: '.'
   has_many :note, Note, xpath: '.'
   has_many :subject, Subject, xpath: '.'
   has_many :identifier, Identifier, xpath: '.'

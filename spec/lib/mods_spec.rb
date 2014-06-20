@@ -31,6 +31,8 @@ SAMPLE_MODS = '<?xml version="1.0"?>
     <mods:note>note 1</mods:note>
   </mods:physicalDescription>
   <mods:abstract>Po&#xE9;try description...</mods:abstract>
+  <mods:tableOfContents type="incomplete contents">ToC</mods:tableOfContents>
+  <mods:targetAudience authority="local">audience</mods:targetAudience>
 </mods:mods>
 '
 
@@ -45,6 +47,8 @@ describe Mods do
     m.language = build_language
     m.physical_description = build_physical_description
     m.abstract = build_abstract
+    m.table_of_contents = build_table_of_contents
+    m.target_audience = build_target_audience
     m.to_xml.should == SAMPLE_MODS
   end
 
