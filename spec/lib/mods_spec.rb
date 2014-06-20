@@ -7,18 +7,22 @@ SAMPLE_MODS = '<?xml version="1.0"?>
     <mods:title>Po&#xE9;try</mods:title>
   </mods:titleInfo>
   <mods:typeOfResource>text</mods:typeOfResource>
+  <mods:genre authority="aat">aat theses</mods:genre>
+  <mods:originInfo displayLabel="origin info">
+    <mods:place>
+      <mods:placeTerm>USA</mods:placeTerm>
+    </mods:place>
+  </mods:originInfo>
 </mods:mods>
 '
 
 describe Mods do
-  it "should create elements" do
+  it "should create sample elements" do
     m = Mods.new
-    title = TitleInfo.new
-    title.title = 'Poétry'
-    m.title_info = title
-    type_of_resource = TypeOfResource.new
-    type_of_resource.content = 'text'
-    m.type_of_resource = type_of_resource
+    m.title_info = build_title_info
+    m.type_of_resource = build_type_of_resource
+    m.genre = build_genre
+    m.origin_info = build_origin_info
     m.to_xml.should == SAMPLE_MODS
   end
 

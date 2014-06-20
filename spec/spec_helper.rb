@@ -15,3 +15,33 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = 'random'
 end
+
+def build_title_info
+  title = TitleInfo.new
+  title.title = 'Poétry'
+  title
+end
+
+def build_type_of_resource
+  type_of_resource = TypeOfResource.new
+  type_of_resource.content = 'text'
+  type_of_resource
+end
+
+def build_genre
+  genre = Genre.new
+  genre.authority = 'aat'
+  genre.content = 'aat theses'
+  genre
+end
+
+def build_origin_info
+  origin_info = OriginInfo.new
+  origin_info.display_label = 'origin info'
+  place = Place.new
+  place_term = PlaceTerm.new
+  place_term.content = 'USA'
+  place.place_term = place_term
+  origin_info.place = place
+  origin_info
+end
