@@ -12,6 +12,8 @@ SAMPLE_MODS = '<?xml version="1.0"?>
     <mods:place>
       <mods:placeTerm>USA</mods:placeTerm>
     </mods:place>
+    <mods:dateIssued encoding="w3cdtf" qualifier="questionable">2018-01</mods:dateIssued>
+    <mods:dateCreated encoding="w3cdtf" keyDate="yes">2008-02-03</mods:dateCreated>
   </mods:originInfo>
 </mods:mods>
 '

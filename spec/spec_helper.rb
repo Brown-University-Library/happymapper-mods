@@ -43,5 +43,15 @@ def build_origin_info
   place_term.content = 'USA'
   place.place_term = place_term
   origin_info.place = place
+  date_issued = ModsDates::DateIssued.new
+  date_issued.encoding = 'w3cdtf'
+  date_issued.qualifier = 'questionable'
+  date_issued.content = '2018-01'
+  origin_info.date_issued = date_issued
+  date_created = ModsDates::DateCreated.new
+  date_created.encoding = 'w3cdtf'
+  date_created.key_date = 'yes'
+  date_created.content = '2008-02-03'
+  origin_info.date_created = date_created
   origin_info
 end
