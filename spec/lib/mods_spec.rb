@@ -38,6 +38,15 @@ SAMPLE_MODS = '<?xml version="1.0"?>
     <mods:topic>programming</mods:topic>
   </mods:subject>
   <mods:classification authority="local">classification</mods:classification>
+  <mods:identifier type="type" displayLabel="label">identifier</mods:identifier>
+  <mods:location>
+    <mods:physicalLocation>Random location</mods:physicalLocation>
+    <mods:holdingSimple>
+      <mods:copyInformation>
+        <mods:note>location note</mods:note>
+      </mods:copyInformation>
+    </mods:holdingSimple>
+  </mods:location>
   <mods:relatedItem type="host">
     <mods:identifier>test_id</mods:identifier>
   </mods:relatedItem>
@@ -60,6 +69,8 @@ describe Mods do
     m.note = build_note
     m.subject = build_subject
     m.classification = build_classification
+    m.identifier = build_identifier
+    m.location = build_location
     m.related_item = build_related_item
     m.to_xml.should == SAMPLE_MODS
   end

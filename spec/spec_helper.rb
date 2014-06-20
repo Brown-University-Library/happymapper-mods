@@ -147,3 +147,26 @@ def build_related_item
   ri.identifier = id
   ri
 end
+
+def build_identifier
+  id = Identifier.new
+  id.display_label = 'label'
+  id.type = 'type'
+  id.content = 'identifier'
+  id
+end
+
+def build_location
+  loc = Location.new
+  phys_loc = PhysicalLocation.new
+  phys_loc.content = 'Random location'
+  loc.physical_location = phys_loc
+  hs = HoldingSimple.new
+  ci = CopyInformation.new
+  note = Note.new
+  note.content = 'location note'
+  ci.note = note
+  hs.copy_information = ci
+  loc.holding_simple = hs
+  loc
+end

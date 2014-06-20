@@ -156,7 +156,7 @@ class Identifier
   tag 'identifier'
 
   attribute :type, String
-  attribute :display_label, String
+  attribute :display_label, String, tag: 'displayLabel'
   attribute :invalid, String
   content :content, String
 end
@@ -299,6 +299,42 @@ class Classification
   content :content, String
 end
 
+class PhysicalLocation
+  include HappyMapper
+  include ModsNamespace
+  tag 'physicalLocation'
+
+  attribute :authority, String
+  content :content, String
+end
+
+class CopyInformation
+  include HappyMapper
+  include ModsNamespace
+  tag 'copyInformation'
+
+  #these elements should be ordered
+  has_many :note, Note
+end
+
+class HoldingSimple
+  include HappyMapper
+  include ModsNamespace
+  tag 'holdingSimple'
+
+  has_many :copy_information, CopyInformation, tag: 'copyInformation'
+end
+
+class Location
+  include HappyMapper
+  include ModsNamespace
+  tag 'location'
+
+  #these elements should be ordered
+  has_many :physical_location, PhysicalLocation, tag: 'physicalLocation'
+  has_one :holding_simple, HoldingSimple, tag: 'holdingSimple'
+end
+
 class ModsBase
   include HappyMapper
   include ModsNamespace
@@ -318,6 +354,7 @@ class ModsBase
   has_many :subject, Subject, xpath: '.'
   has_many :classification, Classification, xpath: '.'
   has_many :identifier, Identifier, xpath: '.'
+  has_many :location, Location, xpath: '.'
 end
 
 class RelatedItem < ModsBase
