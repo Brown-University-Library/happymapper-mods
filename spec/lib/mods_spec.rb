@@ -22,5 +22,20 @@ describe Mods do
     m = Mods.parse(SAMPLE_MODS)
     m.title_info[0].title[0].should == 'Poétry'
   end
+
+  it "should let you change a title" do
+    m = Mods.parse(SAMPLE_MODS)
+    m.title_info[0].title[0] = 'Péts'
+    m.title_info[0].title[0].should == 'Péts'
+  end
+
+  it "should let you add a title" do
+    m = Mods.parse(SAMPLE_MODS)
+    t = TitleInfo.new
+    t.title = ['Péts']
+    m.title_info << t
+    titles = []
+    m.title_info.each { |title_info| titles << title_info.title[0] }
+    titles.should == ['Poétry', 'Péts']
+  end
 end
-    
