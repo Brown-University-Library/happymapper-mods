@@ -170,3 +170,19 @@ def build_location
   loc.holding_simple = hs
   loc
 end
+
+def build_access_condition
+  ac = AccessCondition.new
+  ac.type = 'use and reproduction'
+  ac.content = 'To the extent possible under law, the person who associated CC0 with this work has waived all copyright and related or neighboring rights to this work.'
+  ac
+end
+
+def build_part
+  part = Part.new
+  detail = Detail.new
+  detail.type = 'divid'
+  detail.number = 'div01'
+  part.detail = detail
+  part
+end

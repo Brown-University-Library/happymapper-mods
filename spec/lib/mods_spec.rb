@@ -47,6 +47,12 @@ SAMPLE_MODS = '<?xml version="1.0"?>
       </mods:copyInformation>
     </mods:holdingSimple>
   </mods:location>
+  <mods:accessCondition type="use and reproduction">To the extent possible under law, the person who associated CC0 with this work has waived all copyright and related or neighboring rights to this work.</mods:accessCondition>
+  <mods:part>
+    <mods:detail type="divid">
+      <mods:number>div01</mods:number>
+    </mods:detail>
+  </mods:part>
   <mods:relatedItem type="host">
     <mods:identifier>test_id</mods:identifier>
   </mods:relatedItem>
@@ -71,6 +77,8 @@ describe Mods do
     m.classification = build_classification
     m.identifier = build_identifier
     m.location = build_location
+    m.access_condition = build_access_condition
+    m.part = build_part
     m.related_item = build_related_item
     m.to_xml.should == SAMPLE_MODS
   end

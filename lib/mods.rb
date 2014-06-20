@@ -335,6 +335,33 @@ class Location
   has_one :holding_simple, HoldingSimple, tag: 'holdingSimple'
 end
 
+class AccessCondition
+  include HappyMapper
+  include ModsNamespace
+  tag 'accessCondition'
+
+  attribute :type, String
+  content :content, String
+end
+
+class Detail
+  include HappyMapper
+  include ModsNamespace
+  tag 'detail'
+
+  attribute :type, String
+  has_many :number, String
+end
+
+class Part
+  include HappyMapper
+  include ModsNamespace
+  tag 'part'
+
+  attribute :type, String
+  has_many :detail, Detail
+end
+
 class ModsBase
   include HappyMapper
   include ModsNamespace
@@ -355,6 +382,8 @@ class ModsBase
   has_many :classification, Classification, xpath: '.'
   has_many :identifier, Identifier, xpath: '.'
   has_many :location, Location, xpath: '.'
+  has_many :access_condition, AccessCondition, xpath: '.'
+  has_many :part, Part, xpath: '.'
 end
 
 class RelatedItem < ModsBase
