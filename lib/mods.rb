@@ -362,6 +362,45 @@ class Part
   has_many :detail, Detail
 end
 
+class Extension
+  include HappyMapper
+  include ModsNamespace
+  tag 'extension'
+
+  attribute :display_label, String
+  content :content, String
+end
+
+class RecordContentSource
+  include HappyMapper
+  include ModsNamespace
+  tag 'recordContentSource'
+
+  attribute :authority, String
+  content :content, String
+end
+
+class RecordCreationDate
+  include HappyMapper
+  include ModsNamespace
+  tag 'recordCreationDate'
+
+  attribute :encoding, String
+  attribute :point, String
+  attribute :key_date, String, tag: 'keyDate'
+  attribute :qualifier, String
+  content :content, String
+end
+
+class RecordInfo
+  include HappyMapper
+  include ModsNamespace
+  tag 'recordInfo'
+
+  has_many :record_content_source, RecordContentSource, tag: 'recordContentSource'
+  has_many :record_creation_date, RecordCreationDate, tag: 'recordCreationDate'
+end
+
 class ModsBase
   include HappyMapper
   include ModsNamespace
@@ -384,6 +423,8 @@ class ModsBase
   has_many :location, Location, xpath: '.'
   has_many :access_condition, AccessCondition, xpath: '.'
   has_many :part, Part, xpath: '.'
+  has_many :extension, Extension, xpath: '.'
+  has_many :record_info, RecordInfo, xpath: '.'
 end
 
 class RelatedItem < ModsBase

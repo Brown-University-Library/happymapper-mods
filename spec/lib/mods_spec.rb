@@ -53,6 +53,11 @@ SAMPLE_MODS = '<?xml version="1.0"?>
       <mods:number>div01</mods:number>
     </mods:detail>
   </mods:part>
+  <mods:extension>extension</mods:extension>
+  <mods:recordInfo>
+    <mods:recordContentSource authority="local">RCS</mods:recordContentSource>
+    <mods:recordCreationDate encoding="iso8601">20190618</mods:recordCreationDate>
+  </mods:recordInfo>
   <mods:relatedItem type="host">
     <mods:identifier>test_id</mods:identifier>
   </mods:relatedItem>
@@ -79,6 +84,8 @@ describe Mods do
     m.location = build_location
     m.access_condition = build_access_condition
     m.part = build_part
+    m.extension = build_extension
+    m.record_info = build_record_info
     m.related_item = build_related_item
     m.to_xml.should == SAMPLE_MODS
   end

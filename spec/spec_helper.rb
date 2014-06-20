@@ -186,3 +186,22 @@ def build_part
   part.detail = detail
   part
 end
+
+def build_extension
+  ext = Extension.new
+  ext.content = 'extension'
+  ext
+end
+
+def build_record_info
+  ri = RecordInfo.new
+  rcs = RecordContentSource.new
+  rcs.authority = 'local'
+  rcs.content = 'RCS'
+  ri.record_content_source = rcs
+  rcd = RecordCreationDate.new
+  rcd.encoding = 'iso8601'
+  rcd.content = '20190618'
+  ri.record_creation_date = rcd
+  ri
+end
