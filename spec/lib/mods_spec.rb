@@ -33,6 +33,10 @@ SAMPLE_MODS = '<?xml version="1.0"?>
   <mods:abstract>Po&#xE9;try description...</mods:abstract>
   <mods:tableOfContents type="incomplete contents">ToC</mods:tableOfContents>
   <mods:targetAudience authority="local">audience</mods:targetAudience>
+  <mods:note displayLabel="label" type="random Typ&#xE9;">random type note</mods:note>
+  <mods:subject displayLabel="Display Label">
+    <mods:topic>programming</mods:topic>
+  </mods:subject>
 </mods:mods>
 '
 
@@ -49,6 +53,8 @@ describe Mods do
     m.abstract = build_abstract
     m.table_of_contents = build_table_of_contents
     m.target_audience = build_target_audience
+    m.note = build_note
+    m.subject = build_subject
     m.to_xml.should == SAMPLE_MODS
   end
 

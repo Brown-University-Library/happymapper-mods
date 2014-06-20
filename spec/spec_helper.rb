@@ -114,3 +114,20 @@ def build_target_audience
   ta.content = 'audience'
   ta
 end
+
+def build_note
+  note = Note.new
+  note.type = 'random Typé'
+  note.display_label = 'label'
+  note.content = 'random type note'
+  note
+end
+
+def build_subject
+  subject = Subject.new
+  subject.display_label = 'Display Label'
+  topic = Topic.new
+  topic.content = 'programming'
+  subject.topic = topic
+  subject
+end

@@ -206,6 +206,7 @@ class Note
 
   attribute :id, String, tag: 'ID'
   attribute :display_label, String, tag: 'displayLabel'
+  attribute :type, String
   content :content, String
 end
 
@@ -264,6 +265,15 @@ class Temporal
   content :content, String
 end
 
+class Topic
+  include HappyMapper
+  include ModsNamespace
+  tag 'topic'
+
+  attribute :authority, String
+  content :content, String
+end
+
 class Subject
   include HappyMapper
   include ModsNamespace
@@ -272,7 +282,7 @@ class Subject
   attribute :id, String, tag: 'ID'
   attribute :authority, String
   attribute :display_label, String, tag: 'displayLabel'
-  has_many :topic, String
+  has_many :topic, Topic
   has_many :geographic, String
   has_many :temporal, Temporal
   has_many :title_info, TitleInfo, xpath: '.'
