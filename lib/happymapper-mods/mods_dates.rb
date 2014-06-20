@@ -1,4 +1,4 @@
-require './lib/mods_namespaces'
+require 'happymapper-mods/mods_namespaces'
 
 module ModsDates
 
