@@ -6,6 +6,13 @@ SAMPLE_MODS = '<?xml version="1.0"?>
   <mods:titleInfo>
     <mods:title>Po&#xE9;try</mods:title>
   </mods:titleInfo>
+  <mods:name type="personal">
+    <mods:namePart>Smith, Tom</mods:namePart>
+    <mods:namePart type="date">1803 or 4-1860</mods:namePart>
+    <mods:role>
+      <mods:roleTerm type="text">creator</mods:roleTerm>
+    </mods:role>
+  </mods:name>
   <mods:typeOfResource>text</mods:typeOfResource>
   <mods:genre authority="aat">aat theses</mods:genre>
   <mods:originInfo displayLabel="origin info">
@@ -15,6 +22,9 @@ SAMPLE_MODS = '<?xml version="1.0"?>
     <mods:dateIssued encoding="w3cdtf" qualifier="questionable">2018-01</mods:dateIssued>
     <mods:dateCreated encoding="w3cdtf" keyDate="yes">2008-02-03</mods:dateCreated>
   </mods:originInfo>
+  <mods:language>
+    <mods:languageTerm type="text">xyz</mods:languageTerm>
+  </mods:language>
 </mods:mods>
 '
 
@@ -22,9 +32,11 @@ describe Mods do
   it "should create sample elements" do
     m = Mods.new
     m.title_info = build_title_info
+    m.name = build_name
     m.type_of_resource = build_type_of_resource
     m.genre = build_genre
     m.origin_info = build_origin_info
+    m.language = build_language
     m.to_xml.should == SAMPLE_MODS
   end
 
