@@ -37,6 +37,10 @@ SAMPLE_MODS = '<?xml version="1.0"?>
   <mods:subject displayLabel="Display Label">
     <mods:topic>programming</mods:topic>
   </mods:subject>
+  <mods:classification authority="local">classification</mods:classification>
+  <mods:relatedItem type="host">
+    <mods:identifier>test_id</mods:identifier>
+  </mods:relatedItem>
 </mods:mods>
 '
 
@@ -55,6 +59,8 @@ describe Mods do
     m.target_audience = build_target_audience
     m.note = build_note
     m.subject = build_subject
+    m.classification = build_classification
+    m.related_item = build_related_item
     m.to_xml.should == SAMPLE_MODS
   end
 

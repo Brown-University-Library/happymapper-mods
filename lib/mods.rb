@@ -289,6 +289,16 @@ class Subject
   has_many :name, Name, xpath: '.'
 end
 
+class Classification
+  include HappyMapper
+  include ModsNamespace
+  tag 'classification'
+
+  attribute :authority, String
+  attribute :display_label, String, tag: 'displayLabel'
+  content :content, String
+end
+
 class ModsBase
   include HappyMapper
   include ModsNamespace
@@ -306,6 +316,7 @@ class ModsBase
   has_many :target_audience, TargetAudience, xpath: '.'
   has_many :note, Note, xpath: '.'
   has_many :subject, Subject, xpath: '.'
+  has_many :classification, Classification, xpath: '.'
   has_many :identifier, Identifier, xpath: '.'
 end
 

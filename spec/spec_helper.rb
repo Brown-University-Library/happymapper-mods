@@ -131,3 +131,19 @@ def build_subject
   subject.topic = topic
   subject
 end
+
+def build_classification
+  cl = Classification.new
+  cl.authority = 'local'
+  cl.content = 'classification'
+  cl
+end
+
+def build_related_item
+  ri = RelatedItem.new
+  ri.type = 'host'
+  id = Identifier.new
+  id.content = 'test_id'
+  ri.identifier = id
+  ri
+end
