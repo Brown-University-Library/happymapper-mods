@@ -1,6 +1,6 @@
-require 'happymapper'
-require './lib/mods_dates'
-require './lib/mods_namespaces'
+require 'nokogiri-happymapper'
+require 'happymapper-mods/mods_dates'
+require 'happymapper-mods/mods_namespaces'
 
 class TitleInfo
   include HappyMapper
