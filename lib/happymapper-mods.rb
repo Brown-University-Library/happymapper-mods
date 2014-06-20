@@ -1,4 +1,4 @@
-require 'nokogiri-happymapper'
+require 'happymapper'
 require 'happymapper-mods/mods_dates'
 require 'happymapper-mods/mods_namespaces'
 
