@@ -199,6 +199,16 @@ class Extent
   content :content, String
 end
 
+class Note
+  include HappyMapper
+  include ModsNamespace
+  tag 'note'
+
+  attribute :id, String, tag: 'ID'
+  attribute :display_label, String, tag: 'displayLabel'
+  content :content, String
+end
+
 class PhysicalDescription
   include HappyMapper
   include ModsNamespace
@@ -207,6 +217,8 @@ class PhysicalDescription
   attribute :display_label, String, tag: 'displayLabel'
   has_many :form, Form
   has_many :extent, Extent
+  has_many :digital_origin, String, tag: 'digitalOrigin'
+  has_many :note, Note
 end
 
 class Abstract
@@ -216,16 +228,6 @@ class Abstract
 
   attribute :display_label, String, tag: 'displayLabel'
   attribute :type, String
-  content :content, String
-end
-
-class Note
-  include HappyMapper
-  include ModsNamespace
-  tag 'note'
-
-  attribute :id, String, tag: 'ID'
-  attribute :display_label, String, tag: 'displayLabel'
   content :content, String
 end
 

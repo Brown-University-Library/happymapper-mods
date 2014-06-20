@@ -82,3 +82,21 @@ def build_language
   language.language_term = language_term
   language
 end
+
+def build_physical_description
+  phys_desc = PhysicalDescription.new
+  extent = Extent.new
+  extent.content = 'viii, 208 p.'
+  phys_desc.extent = extent
+  phys_desc.digital_origin = 'born digital'
+  note = Note.new
+  note.content = 'note 1'
+  phys_desc.note = note
+  phys_desc
+end
+
+def build_abstract
+  abstract = Abstract.new
+  abstract.content = 'Poétry description...'
+  abstract
+end

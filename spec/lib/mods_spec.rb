@@ -25,6 +25,12 @@ SAMPLE_MODS = '<?xml version="1.0"?>
   <mods:language>
     <mods:languageTerm type="text">xyz</mods:languageTerm>
   </mods:language>
+  <mods:physicalDescription>
+    <mods:extent>viii, 208 p.</mods:extent>
+    <mods:digitalOrigin>born digital</mods:digitalOrigin>
+    <mods:note>note 1</mods:note>
+  </mods:physicalDescription>
+  <mods:abstract>Po&#xE9;try description...</mods:abstract>
 </mods:mods>
 '
 
@@ -37,6 +43,8 @@ describe Mods do
     m.genre = build_genre
     m.origin_info = build_origin_info
     m.language = build_language
+    m.physical_description = build_physical_description
+    m.abstract = build_abstract
     m.to_xml.should == SAMPLE_MODS
   end
 
